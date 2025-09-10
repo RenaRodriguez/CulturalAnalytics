@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-input_file = "data/extrahierte_daten_bereinigt2.csv"
+input_file = "data/extrahierte_daten_bereinigt.csv"
 output_file = "epochen_csv/gesamt_clean.csv"
 
 df = pd.read_csv(input_file)

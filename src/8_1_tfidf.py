@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 all_txt_files =[]
-for file in Path("epochen_txt").rglob("*.txt"):
+for file in Path("data/epochen_txt").rglob("*.txt"):
      all_txt_files.append(file.parent / file.name)
 # Länge der Liste
 n_files = len(all_txt_files)
@@ -28,7 +28,7 @@ transformed_documents_as_array = transformed_documents.toarray()
 print(len(transformed_documents_as_array))
 
 output_filenames = [
-    Path("epochen_txt/tf_idf_output") / (txt_file.name.replace(".txt", ".csv"))
+    Path("data/epochen_txt/tf_idf_output") / (txt_file.name.replace(".txt", ".csv"))
     for txt_file in all_txt_files
 ]
 

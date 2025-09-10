@@ -4,7 +4,7 @@ import glob
 import pandas as pd
 from pathlib import Path
 
-path = r'epochen_txt/tf_idf_output'
+path = r'data/epochen_txt/tf_idf_output'
 all_files = sorted(glob.glob(path + "/*.csv"))
 
 li = []
