@@ -4,7 +4,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("data/extrahierte_daten_bereinigt.csv")
+df = pd.read_csv("daten/extrahierte_daten_bereinigt.csv")
 
 grouped = df.groupby(["Datierung", "Herkunft"]).size().reset_index(name="Anzahl")
 

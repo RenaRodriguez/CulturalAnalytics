@@ -18,7 +18,7 @@ nlp = spacy.load("de_core_news_lg")
 nlp.max_length = 2_000_000  # für die größere Modelle, geht zeittechnisch noch total
 
 
-text_path = "epochen_txt"  
+text_path = "daten/epochen_txt"  
 texts = []
 titles = []
 

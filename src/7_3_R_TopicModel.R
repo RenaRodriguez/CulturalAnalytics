@@ -13,7 +13,7 @@ library(quanteda.textstats)
 
 german_stopwords <- stopwords("de")
 
-text_data <- read.csv("D:/Code/CA/data/texte.csv", encoding = "UTF-8")
+text_data <- read.csv("daten/texte.csv", encoding = "UTF-8")
 colnames(text_data)
 text_data %<>% mutate(d_id = 1:nrow(text_data))
 

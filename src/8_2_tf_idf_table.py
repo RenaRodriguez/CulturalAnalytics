@@ -4,7 +4,7 @@ import glob
 import pandas as pd
 from pathlib import Path
 
-path = r'data/epochen_txt/tf_idf_output'
+path = r'daten/epochen_txt/tf_idf_output'
 all_files = sorted(glob.glob(path + "/*.csv"))
 
 li = []
@@ -18,4 +18,4 @@ column_names = [Path(f).stem for f in all_files]
 
 frame.columns = column_names
 
-frame.to_csv('epochen_txt/tf_idf_output/tf_idf_table.csv', sep=',', index=False, encoding="utf-8-sig")
+frame.to_csv('daten/epochen_txt/tf_idf_output/tf_idf_table.csv', sep=',', index=False, encoding="utf-8-sig")

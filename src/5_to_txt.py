@@ -3,8 +3,8 @@ import pandas as pd
 import glob
 import os
 
-csv_folder = "epochen_csv/"
-output_folder = "epochen_txt/"
+csv_folder = "daten/epochen_csv/"
+output_folder = "daten/epochen_txt/"
 
 os.makedirs(output_folder, exist_ok=True)
 

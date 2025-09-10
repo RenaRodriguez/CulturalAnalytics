@@ -17,14 +17,14 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 # CSV laden
-df = pd.read_csv("epochen_csv\gesamt_clean.csv", encoding='utf-8')
-#df = pd.read_csv("epochen_csv/Dritte_Zwischenzeit.csv", encoding='utf-8')
-#df = pd.read_csv("epochen_csv/Zweite_Zwischenzeit_clean.csv", encoding='utf-8')
-#df = pd.read_csv("epochen_csv\Mittleres_Reich_clean.csv", encoding='utf-8')
-#df = pd.read_csv(r"epochen_csv\Neues_Reich_clean.csv", encoding='utf-8')
-#df = pd.read_csv("epoche_csv/Altes_Reich.csv", encoding='utf-8')
-#df = pd.read_csv("epochen_csv\Spätzeit_clean.csv", encoding='utf-8')
-#df = pd.read_csv("epochen_csv/Griechisch-römische_Zeit_clean.csv", encoding='utf-8')
+df = pd.read_csv("daten\epochen_csv\gesamt_clean.csv", encoding='utf-8')
+#df = pd.read_csv("daten\epochen_csv/Dritte_Zwischenzeit.csv", encoding='utf-8')
+#df = pd.read_csv("daten\epochen_csv/Zweite_Zwischenzeit_clean.csv", encoding='utf-8')
+#df = pd.read_csv("daten\epochen_csv\Mittleres_Reich_clean.csv", encoding='utf-8')
+#df = pd.read_csv(r"daten\epochen_csv\Neues_Reich_clean.csv", encoding='utf-8')
+#df = pd.read_csv("daten\epoche_csv/Altes_Reich.csv", encoding='utf-8')
+#df = pd.read_csv("daten\epochen_csv\Spätzeit_clean.csv", encoding='utf-8')
+#df = pd.read_csv("daten\epochen_csv/Griechisch-römische_Zeit_clean.csv", encoding='utf-8')
 
 
 # Sortieren für den Dispersion-Plot

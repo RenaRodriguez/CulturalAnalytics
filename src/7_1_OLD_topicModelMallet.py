@@ -17,7 +17,7 @@ import pyLDAvis.gensim
 
 texts = []
 titles = []
-for root, dirs, files in os.walk("epochen_txt"):
+for root, dirs, files in os.walk("daten/epochen_txt"):
     for filename in files:
         with open(os.path.join(root, filename), 'r', encoding='utf-8-sig') as rf:
             texts.append(rf.read().lower())
@@ -42,10 +42,10 @@ processedCorpus = [corpusDictionary.doc2bow(text) for text in refinedTexts]
 
 numberOfTopics = 10
 os.environ.update({'MALLET_HOME':r'C:/mallet-2.0.8/'})
-malletPath = 'C:/mallet-2.0.8/bin/mallet' # update this path
+malletPath = 'C:/mallet-2.0.8/bin/mallet' 
 
 
-# train the model:
+# Model trainieren:
 ldaMalletModel = LdaMallet(mallet_path=malletPath, corpus=processedCorpus,
                            id2word=corpusDictionary, num_topics=numberOfTopics,
                            optimize_interval=100, prefix="test")

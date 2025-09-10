@@ -4,7 +4,7 @@ import openpyxl
 import os
 import csv
 
-verzeichnis = "data/Rohdaten" 
+verzeichnis = "daten/Rohdaten" 
 dateien = [f for f in os.listdir(verzeichnis) if f.endswith('.xlsx')]
 
 ergebnisse = []
@@ -69,8 +69,8 @@ for datei in dateien:
 
 
 # CSV
-os.makedirs("data", exist_ok=True)
-with open("data/extrahierte_daten.csv", "w", newline="", encoding="utf-8-sig") as f:
+os.makedirs("daten", exist_ok=True)
+with open("daten/extrahierte_daten.csv", "w", newline="", encoding="utf-8-sig") as f:
     writer = csv.DictWriter(f, fieldnames=["Datei", "Herkunft", "Datierung", "Übersetzung"])
     writer.writeheader()
     for idx, eintrag in enumerate(ergebnisse, start=1):

@@ -2,8 +2,8 @@
 
 import pandas as pd
 
-input_file = "data/extrahierte_daten_bereinigt.csv"
-output_file = "epochen_csv/gesamt_clean.csv"
+input_file = "daten/extrahierte_daten_bereinigt.csv"
+output_file = "daten/epochen_csv/gesamt_clean.csv"
 
 df = pd.read_csv(input_file)
 df_clean = df.drop_duplicates(subset=["Datei", "Übersetzung"])

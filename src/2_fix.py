@@ -3,7 +3,7 @@
 import pandas as pd
 import re
 
-def process_data(input_path="data/extrahierte_daten.csv"):
+def process_data(input_path="daten/extrahierte_daten.csv"):
 
     df = pd.read_csv(input_path, encoding="utf-8")
 
@@ -41,7 +41,7 @@ def process_data(input_path="data/extrahierte_daten.csv"):
 
     herkunft_counts = df['Herkunft'].value_counts().reset_index()
     herkunft_counts.columns = ['Herkunft', 'Anzahl']
-    herkunft_counts.to_csv("data/herkunft_haeufigkeiten_herkunft.csv", index=False, encoding="utf-8-sig")
+    herkunft_counts.to_csv("daten/herkunft_haeufigkeiten.csv", index=False, encoding="utf-8-sig")
 
 
 
@@ -109,11 +109,11 @@ def process_data(input_path="data/extrahierte_daten.csv"):
 
     df = df[~df['Datierung'].str.contains("efer", na=False)]
 
-    df[['Datierung']].drop_duplicates().to_csv("data/einzigartige_datierungen.csv", index=False, encoding="utf-8-sig")
+    df[['Datierung']].drop_duplicates().to_csv("daten/einzigartige_datierungen.csv", index=False, encoding="utf-8-sig")
 
     datierung_counts = df['Datierung'].value_counts().reset_index()
     datierung_counts.columns = ['Datierung', 'Anzahl']
-    datierung_counts.to_csv("data/datierung_haeufigkeiten.csv", index=False, encoding="utf-8-sig")
+    datierung_counts.to_csv("daten/datierung_haeufigkeiten.csv", index=False, encoding="utf-8-sig")
 
 
     
@@ -180,10 +180,10 @@ def process_data(input_path="data/extrahierte_daten.csv"):
 
     df["Epoche"] = df["Datierung"].map(periode_dict).fillna("Unbekannt")
 
-    df.to_csv("data/extrahierte_daten_bereinigt.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("daten/extrahierte_daten_bereinigt.csv", index=False, encoding="utf-8-sig")
 
     # Nur Übersetzungen 
-    # df[['Datei', 'Übersetzung']].to_csv("data/texte.csv", index=False, encoding="utf-8-sig")
+    # df[['Datei', 'Übersetzung']].to_csv("daten/texte.csv", index=False, encoding="utf-8-sig")
 
     print("Datei erstellt.")
 

@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def plot_deir_el_medineh(input_path="data/extrahierte_daten_bereinigt.csv"):
+def plot_deir_el_medineh(input_path="daten/extrahierte_daten_bereinigt.csv"):
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"Datei nicht gefunden: {input_path}")
 
