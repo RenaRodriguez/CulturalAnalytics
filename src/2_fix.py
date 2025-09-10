@@ -1,3 +1,5 @@
+# Bereinigen der Daten 
+
 import pandas as pd
 import re
 
@@ -6,7 +8,7 @@ def process_data(input_path="data/extrahierte_daten.csv"):
     df = pd.read_csv(input_path, encoding="utf-8")
 
     #--------------Herkunft------------------------------------
-    herkunft_map = {
+    herkunft_dict = {
         "el-Lahun (Illahun), Siedlung": "el-Lahun",
         "Tal der Könige (Biban el-Muluk)": "Tal der Könige",
         "Karnak, Chonstempel, südöstlich des Karnaktempels": "Karnak",
@@ -15,6 +17,7 @@ def process_data(input_path="data/extrahierte_daten.csv"):
         "aus den Grabungen von W.M.F. Petrie in Kom Medinet Ghurab (Fischer-Elfert, in: JEA 84, 1998, 87)": "Gurob",
         "Papyrus, bestehend aus ca. 200 Fragmenten v.a. aus Kopenhagen (P. Carlsberg inv. 205) sowie in Florenz, Kairo, Michigan, Oxford, Yale": "Tebtynis",
         "(unbestimmt); Ro: Rede des Sachmetpriesters Renseneb": "unbestimmt",
+        "Saqqara, Nekropolen": "Saqqara"
     }
 
     df = df[~df['Herkunft'].str.contains("Mann", na=False)]
@@ -26,7 +29,7 @@ def process_data(input_path="data/extrahierte_daten.csv"):
         .str.replace(r'\s+', ' ', regex=True)
         .str.replace(r'^Tebtynis Temple Library.*$', 'Tebtynis Temple Library', regex=True)
         .str.replace(r'^Tebtynis Tempelbibliothek.*$', 'Tebtynis Temple Library', regex=True)
-        .replace(herkunft_map)
+        .replace(herkunft_dict)
     )
 
     def clean_herkunft(text):
@@ -130,7 +133,7 @@ def process_data(input_path="data/extrahierte_daten.csv"):
 
     #--------------Epochen------------------------------------
 
-    periode_mapping = {
+    periode_dict = {
     "12. Dyn.": "Mittleres Reich",
     "12. Dyn. - 13. / 14. Dyn.": "Zweite Zwischenzeit",
     "13. / 14. Dyn.": "Zweite Zwischenzeit",
@@ -175,26 +178,9 @@ def process_data(input_path="data/extrahierte_daten.csv"):
     "keiner, Kolophon": "Unbekannt",
 }
 
-    df["Epoche"] = df["Datierung"].map(periode_mapping).fillna("Unbekannt")
+    df["Epoche"] = df["Datierung"].map(periode_dict).fillna("Unbekannt")
 
-    grouped = df.groupby(["Epoche", "Herkunft"]).size().reset_index(name="Anzahl")
-
-    ordered_periods = [
-        "Mittleres Reich",
-        "Zweite Zwischenzeit",
-        "Neues Reich",
-        "Dritte Zwischenzeit",
-        "Spätzeit",
-        "Griechisch-römische Zeit",
-        "Unbekannt"
-        ]
-
-    # Balkendiagramm
-    pivot = grouped.pivot(index="Herkunft", columns="Epoche", values="Anzahl").fillna(0)
-    pivot = pivot[ordered_periods]  
-
-
-    df.to_csv("data/extrahierte_daten_bereinigt2.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("data/extrahierte_daten_bereinigt.csv", index=False, encoding="utf-8-sig")
 
     # Nur Übersetzungen 
     # df[['Datei', 'Übersetzung']].to_csv("data/texte.csv", index=False, encoding="utf-8-sig")

@@ -1,8 +1,11 @@
+# Aufteilung in txt und csv nach Epochen
+
 import pandas as pd
 import os
 import re
+import matplotlib.pyplot as plt
 
-df = pd.read_csv("data/extrahierte_daten_bereinigt2.csv")
+df = pd.read_csv("data/extrahierte_daten_bereinigt.csv")
 df.sort_values(["Epoche"], axis=0, ascending=[True], inplace=True)
 
 print(df)
@@ -37,3 +40,4 @@ for epoche, gruppe in gruppen:
     dateipfad_csv = os.path.join(ausgabeordner_csv, dateiname_csv)
     gruppe.to_csv(dateipfad_csv, index=False, encoding="utf-8")
     print(f"{len(gruppe)} gespeichert in: {dateipfad_csv}")
+

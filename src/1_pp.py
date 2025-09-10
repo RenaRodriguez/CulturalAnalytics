@@ -1,8 +1,10 @@
+# Preprocessing
+
 import openpyxl
 import os
 import csv
 
-verzeichnis = "data/testdaten" 
+verzeichnis = "data/Rohdaten" 
 dateien = [f for f in os.listdir(verzeichnis) if f.endswith('.xlsx')]
 
 ergebnisse = []
@@ -82,5 +84,3 @@ with open("data/extrahierte_testdaten.csv", "w", newline="", encoding="utf-8-sig
             break
 
 print("Datei erstellt.")
-
-
