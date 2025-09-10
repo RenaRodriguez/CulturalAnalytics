@@ -70,7 +70,7 @@ for datei in dateien:
 
 # CSV
 os.makedirs("data", exist_ok=True)
-with open("data/extrahierte_testdaten.csv", "w", newline="", encoding="utf-8-sig") as f:
+with open("data/extrahierte_daten.csv", "w", newline="", encoding="utf-8-sig") as f:
     writer = csv.DictWriter(f, fieldnames=["Datei", "Herkunft", "Datierung", "Übersetzung"])
     writer.writeheader()
     for idx, eintrag in enumerate(ergebnisse, start=1):
